@@ -3,8 +3,8 @@
 # cannot use the multiplication, modulo, or division operators.
 
 def is_even():
-    k = int(input('Enter an integer value: '))
-    return k % 2 == 0
+    k = int(input('Enter an integer value: '))    
+    return (int(str(k)[-1]) in (0,2,4,6,8))
 
 print(is_even())
     
