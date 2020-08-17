@@ -3,7 +3,7 @@
 # integer i, and False otherwise.
 
 def is_multiple():
-    n = int(input('Enter a integer value: '))
+    n = int(input('Enter an integer value: '))
     m = int(input('Enter another integer value: '))
     return m % n == 0
 
