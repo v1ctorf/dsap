@@ -6,6 +6,7 @@ def get_list_integers():
         n = input('Enter an integer number (blank if done): ')
 
         if n == '':
+            print('\n')
             done = True
         else:
             int_list.append(int(n))
