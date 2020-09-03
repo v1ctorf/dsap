@@ -1,5 +1,7 @@
-# Write a short Python function that takes a positive integer n and returns
-# the sum of the squares of all the positive integers smaller than n.
+"""
+Write a short Python function that takes a positive integer n and returns
+the sum of the squares of all the positive integers smaller than n.
+"""
 
 
 def sum_squares(n):
@@ -7,8 +9,7 @@ def sum_squares(n):
 
     for num in range(n):
         square = num * num
-        total += square
-        # print("{0} * {0} = {1} => subtotal is {2}".format(num, square, total))
+        total += square        
         
     return total
 
