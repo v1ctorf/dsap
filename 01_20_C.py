@@ -14,14 +14,18 @@ shuffle(data)
 print(data)
 
 
-data = list('abcdefghijkl')
-
-def my_shuffle(data):
+def gen_shuffle(data):
     while len(data) > 0:
         el = randint(0, len(data) - 1)
         yield data.pop(el)
+    
+def my_shuffle(data):
+    for i in list(gen_shuffle(data)):
+        data.append(i)      
+        
 
-my_shuffle(data)
+data = list('abcdefghijkl')
+my_shuffle(data)    
 print(data)
 
 
