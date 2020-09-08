@@ -11,7 +11,7 @@ while not_eof:
     try:
         line = input('Type here: ')        
         outputs.append(line)
-    except EOFError:
+    except EOFError, KeyboardInterrupt:
         not_eof = False
 
 for i in reversed(outputs):
