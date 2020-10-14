@@ -11,8 +11,15 @@ value of v and norm(v) returns the Euclidean norm of v. You may assume
 that v is a list of numbers.
 """)
 
-from others.helpers import get_list_integers    
+from others.helpers import get_list_integers
+
+def norm(v, p = None):
+    if (p == None):
+        print('Euclidean')
+    else:
+        print('p norm')
+    
 
 int_list = get_list_integers()
 
-print(int_list)
+print(norm(int_list))
