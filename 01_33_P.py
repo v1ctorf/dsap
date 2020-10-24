@@ -6,24 +6,23 @@ Minimally, your calculator should be able to process
 the basic arithmetic operations and a reset/clear operation.
 """)
 
-import operator, os, re
-
-operators = {
-    '+': operator.add,
-    '-': operator.sub,
-    '*': operator.mul,
-    '/': operator.truediv
-}
+import os, re
 
 os.system('cls')
+end_of_exec = False
 
 print('Use your numeric pad.')
 
-x = input('> ')
+while not end_of_exec:
+    try:
+        x = input('? ')
+        
+        if re.search("[^0-9\-\*\/\+\.]", x):
+            print('Input contains invalid character')        
 
-if re.search("[^0-9\-\*\/\+\.]", x):
-    raise Exception('Input contains invalid character')
+        print('> {0}'.format(eval(x)))
+    except (EOFError, KeyboardInterrupt):
+        end_of_exec = True 
 
-numbers = re.findall('[^\-\*\/\+]+', x)
-print(numbers)
-
+    
+    
