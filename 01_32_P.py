@@ -8,10 +8,10 @@ to the Python console what would be displayed on your calculator.
 import operator
 
 operators = {
-    '+':operator.add,
-    '-':operator.sub,
-    '*':operator.mul,
-    '/':operator.truediv
+    '+': operator.add,
+    '-': operator.sub,
+    '*': operator.mul,
+    '/': operator.truediv
 }
 
 a = float(input('A........: '))
@@ -22,6 +22,9 @@ if op not in operators.keys():
 
 b = float(input('B........: '))
 
-print('{0} {1} {2}'.format(a,op,b))
+print('__________________')
+# print('{0} {1} {2}'.format(a,op,b))
 
+result = operators[op](a,b)
 
+print('R........: {0}'.format(round(result,5)))
