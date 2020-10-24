@@ -14,17 +14,31 @@ operators = {
     '/': operator.truediv
 }
 
-a = float(input('A........: '))
-op = input('[{0}]: '.format(' '.join(list(operators.keys()))))
+end_of_exec = True
 
-if op not in operators.keys():
-    raise Exception('"{0}" is not a valid operator'.format(op))
+print(' Use {0}'.format(', '.join(list(operators.keys()))))
 
-b = float(input('B........: '))
+a = None
+b = None
+op = None
 
-print('__________________')
-# print('{0} {1} {2}'.format(a,op,b))
+while end_of_exec:
+    try:
+        x = input(' ? ')
 
-result = operators[op](a,b)
-
-print('R........: {0}'.format(round(result,5)))
+        if x.isnumeric() or x.replace('.','',1).isdigit():
+            if a == None or op == None:
+                a = x
+            elif b == None:
+                b = x
+                a = operators[op](float(a),float(b))
+                print(' > {0}'.format(a))                
+                op = None
+                b = None
+        elif x in operators.keys():         
+            op = x            
+        else:            
+            raise Exception('"{0}" is not a valid entry')
+        
+    except (EOFError, KeyboardInterrupt):
+        end_of_exec = False            
