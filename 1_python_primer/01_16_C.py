@@ -7,6 +7,10 @@ How is it still possible, then, that our implementation of scale changes the
 actual parameter sent by the caller?
 """)
 
+import sys
+sys.path.append("..")
+
+
 from others.helpers import get_list_integers
 
 def scale(data, factor):

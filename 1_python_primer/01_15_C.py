@@ -3,6 +3,9 @@ Write a Python function that takes a sequence of numbers and determines
 if all the numbers are different from each other (that is, they are distinct).
 """)
 
+import sys
+sys.path.append("..")
+
 from others.helpers import get_list_integers
 
 def are_all_distincts(int_list):    
