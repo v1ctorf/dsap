@@ -15,15 +15,15 @@ operators = {
     '/': operator.truediv
 }
 
-
 os.system('cls')
 
 print('Use your numeric pad.')
 
 x = input('> ')
 
+if re.search("[^0-9\-\*\/\+\.]", x):
+    raise Exception('Input contains invalid character')
 
-for i in x:
-    if re.match("[0-9\-\*\/\+\.]", i) == None:
-        raise Exception('Input contains invalid character')
+numbers = re.findall('[^\-\*\/\+]+', x)
+print(numbers)
 
