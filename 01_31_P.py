@@ -31,25 +31,31 @@ currency = {
 
 print('Our currency system is: {0}'.format(currency))
 
-#amount = float(input('\nMonetary amount charged - in EUR: '))
-#given = float(input('Monetary amount given - in EUR: '))
-amount = float(55.89)
-given = float(100)
+amount = float(input('\nMonetary amount charged - in EUR: '))
+given = float(input('Monetary amount given - in EUR: '))
 due = round(given - amount, 2)
 
 if (due < 0):
     raise Exception('Sorry, this is not enough money!')
 
-print('\nDue = EUR {0}; thus...'.format(format(due,'.2f')))
+print('\nDue = EUR {0}; thus'.format(format(due,'.2f')))
 
 change = []
 
-for i in currency.items():
-    if i[1] <= due:
+for i in currency.items():    
+    if i[1] <= due:        
         while i[1] <= due:
             change.append(i)
             due -= i[1]
+            due = round(due, 2)
 
-dict_change = dict(change)
-print(change)
-print(sum(i for i in dict_change.values()))
+dict_change = dict()
+
+for i in change:
+    if i[0] in dict_change:
+        dict_change[i[0]] += 1
+    else:
+        dict_change[i[0]] = 1
+    
+print(dict_change)
+
