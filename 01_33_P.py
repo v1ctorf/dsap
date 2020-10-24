@@ -1,11 +1,12 @@
 print("""
 Write a Python program that simulates a handheld calculator.
 Your program should process input from the Python console representing buttons
-that are “pushed,” and then output the contents of the screen after each operation is performed.
+that are “pushed”, and then output the contents of the screen after each operation is performed.
 Minimally, your calculator should be able to process
 the basic arithmetic operations and a reset/clear operation.
 """)
-import operator
+
+import operator, os, re
 
 operators = {
     '+': operator.add,
@@ -14,31 +15,14 @@ operators = {
     '/': operator.truediv
 }
 
-end_of_exec = True
 
-print(' Use {0}'.format(', '.join(list(operators.keys()))))
+os.system('cls')
 
-a = None
-b = None
-op = None
+print('Use your numeric pad.')
 
-while end_of_exec:
-    try:
-        x = input(' ? ')
+x = input('> ')
 
-        if x.isnumeric() or x.replace('.','',1).isdigit():
-            if a == None or op == None:
-                a = x
-            elif b == None:
-                b = x
-                a = operators[op](float(a),float(b))
-                print(' > {0}'.format(a))                
-                op = None
-                b = None
-        elif x in operators.keys():         
-            op = x            
-        else:            
-            raise Exception('"{0}" is not a valid entry')
-        
-    except (EOFError, KeyboardInterrupt):
-        end_of_exec = False            
+for i in x:
+    if re.match("[0-9\-\*\/\+\.]", i) == None:
+        raise Exception('Input contains invalid character')
+
