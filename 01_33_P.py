@@ -8,19 +8,25 @@ the basic arithmetic operations and a reset/clear operation.
 
 import os, re
 
-os.system('cls')
+def reset_screen():
+    os.system('cls')
+    print('Use your numeric pad and press "c" to reset')
+
+reset_screen()    
+
 end_of_exec = False
 
-print('Use your numeric pad.')
 
 while not end_of_exec:
     try:
         x = input('? ')
-        
-        if re.search("[^0-9\-\*\/\+\.]", x):
-            print('Input contains invalid character')        
 
-        print('> {0}'.format(eval(x)))
+        if x == 'c':
+            reset_screen()           
+        elif re.search("[^0-9\-\*\/\+\.]", x):
+            print('> Input contains invalid character')        
+        else:
+            print('> {0}'.format(eval(x)))
     except (EOFError, KeyboardInterrupt):
         end_of_exec = True 
 
