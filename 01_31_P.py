@@ -31,11 +31,12 @@ currency = {
 
 print('Our currency system is: {0}'.format(currency))
 
-amount = float(input('\nMonetary amount charged: '))
-given = float(input('Monetary amount given: '))
+amount = float(input('\nMonetary amount charged - in EUR: '))
+given = float(input('Monetary amount given - in EUR: '))
 
 change = round(given - amount, 2)
 
-# if (change < 0
+if (change < 0):
+    raise Exception('Sorry, this is not enough money!')
 
-print('Change = {0}; thus... '.format(format(change,'.2f')))      
+print('Change = EUR {0}; thus... '.format(format(change,'.2f')))      
