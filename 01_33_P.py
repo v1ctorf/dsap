@@ -22,6 +22,7 @@ print('Use your numeric pad.')
 
 x = input('> ')
 
+
 for i in x:
     if re.match("[0-9\-\*\/\+\.]", i) == None:
         raise Exception('Input contains invalid character')
