@@ -1,6 +1,7 @@
 print("""
-Write a Python program that can “make change.” Your program should
-take two numbers as input, one that is a monetary amount charged and the
+Write a Python program that can “make change.”
+Your program should take two numbers as input,
+one that is a monetary amount charged and the
 other that is a monetary amount given. It should then return the number
 of each kind of bill and coin to give back as change for the difference
 between the amount given and the amount charged. The values assigned
@@ -10,8 +11,26 @@ few bills and coins as possible.
 """)
 
 
+currency = {
+    '1c':0.01,
+    '2c':0.02,
+    '5c':0.05,
+    '10c':0.10,
+    '20c':0.20,
+    '50c':0.50,
+    '1 EUR':1,
+    '2 EUR':2,
+    '5 EUR':5,    
+    '10 EUR':10,
+    '20 EUR':20,
+    '50 EUR':50,
+    '100 EUR':100,
+    '200 EUR':200,
+    '500 EUR':500
+}
 
-
-
-
-
+print('Our currency system is: {0}'.format(currency))
+amount = input('Monetary amount charged: ')
+given = input('Monetary amount given: ')
+change = amount - given      
+print('Change = {0}; thus... '.format(change))      
