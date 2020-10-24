@@ -30,7 +30,12 @@ currency = {
 }
 
 print('Our currency system is: {0}'.format(currency))
-amount = input('Monetary amount charged: ')
-given = input('Monetary amount given: ')
-change = amount - given      
-print('Change = {0}; thus... '.format(change))      
+
+amount = float(input('\nMonetary amount charged: '))
+given = float(input('Monetary amount given: '))
+
+change = round(given - amount, 2)
+
+# if (change < 0
+
+print('Change = {0}; thus... '.format(format(change,'.2f')))      
