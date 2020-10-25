@@ -9,12 +9,12 @@ make eight different random-looking typos.
 from random import choice
 
 ms = set()
-letters = list(map(chr, range(97, 123)))
 typos = set()
+letters = list(map(chr, range(97, 123)))
 sentence = "I will never spam my friends again"
 
 while len(ms) < 8:    
-    ms.add(choice(range(0,99)))
+    ms.add(choice(range(1,101)))
 
 while len(typos) < 8:    
     pos = choice(range(0, len(sentence)))
@@ -25,9 +25,9 @@ while len(typos) < 8:
         sentwtypo[pos] = mistake
         typos.add("".join(sentwtypo))
 
-for i in range(0,100):
+for i in range(1,101):
     writeout = sentence if i not in list(ms) else typos.pop()
-    print("{0} - {1}.".format(format(i, '02d'), writeout))
+    print("{0} - {1}.".format(format(i, '03d'), writeout))
 
 print("\nSentences with typos: {0}".format(sorted(list(ms))))
 
